@@ -1,0 +1,132 @@
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgb(22, 238, 246);
+    overflow: hidden; /* Hide scrollbars */
+}
+
+/* .center {
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    text-align: center;
+} */
+
+h1 {
+    font-size: 144px;
+}
+
+p {
+    font-size: 16px;
+}
+
+/* textarea {
+    height: 600px;
+    width: 600px;
+} */
+textarea#chat {
+    /* = Убираем скролл */
+    overflow: auto;
+
+    /* = Убираем увеличение */
+    resize: none;
+    width: 600px;
+    height: 500px;
+
+    /* = Добавим фон, рамку, отступ*/
+    background: #e0aaaa;
+    border: 10px solid #3317d1;
+    border-radius: 8px 0 0 0;
+    padding: 8px 0 8px 10px;
+
+}
+
+textarea#id1 {
+    height: 100px;
+    border-radius: 10%;
+}
+
+input#id2 {
+    background-color: brown;
+}
+input {
+    appearance: button;
+    background-color: #000000;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 13px 19px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+   }
+   
+   input:after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+   }
+   
+   input:main, button:focus {
+    user-select: auto;
+   }
+   
+   input:hover:not(:disabled) {
+    filter: brightness(1.1);
+   }
+   
+   button:disabled {
+    cursor: auto;
+   }
+   
+   input:active:after {
+    border-width: 0 0 0px;
+   }
+   
+   input:active {
+    padding-bottom: 10px;
+   }
