@@ -1,0 +1,206 @@
+@font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+  }
+  
+  body {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: hidden; 
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgb(68, 36, 156) 38%, rgb(17, 20, 158) 68%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    font-family: 'Rocher';
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  div {
+    height: 100%;
+    width: 80%
+  }
+
+  div#mybut{
+    width: 80%;
+    text-align: right;
+  }
+  
+  @keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+
+  h1 {
+    margin: 0;
+  }
+  
+  @font-palette-values --Grays {
+    font-family: Rocher;
+    base-palette: 9;
+  }
+  
+  @font-palette-values --Purples {
+    font-family: Rocher;
+    base-palette: 6;
+  }
+  
+  @font-palette-values --Mint {
+    font-family: Rocher;
+    base-palette: 7;
+  }
+  
+  .grays {
+    font-palette: --Grays;
+  }
+  
+  .purples {
+    font-palette: --Purples;
+  }
+  
+  .mint {
+    font-palette: --Mint;
+  }
+
+  input#clickMe {
+    background-color: brown;
+}
+input#clickMe {
+    appearance: button;
+    background-color: #000000;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 13px 19px;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    white-space: nowrap;
+   }
+   
+   input#clickMe:after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+   }
+   
+   input#clickMe:main, button:focus {
+    user-select: auto;
+   }
+   
+   input#clickMe:hover:not(:disabled) {
+    filter: brightness(1.1);
+   }
+   
+   button:disabled {
+    cursor: auto;
+   }
+   
+   input#clickMe:active:after {
+    border-width: 0 0 0px;
+   }
+   
+   input#clickMe:active {
+    padding-bottom: 10px;
+   }
+
+   .glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: blue;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.map {
+   border-radius: 90px;
+   float: left;
+  }
+.country {
+  float: right;
+  text-align: right;
+}

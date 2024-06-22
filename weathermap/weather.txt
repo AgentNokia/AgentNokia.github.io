@@ -1,0 +1,40 @@
+/*
+
+// Sun
+Sunny 1000
+
+// Moon
+Clear
+
+// Clouds
+Partly Cloudy 1003
+Cloudy 1006
+Overcast 1009
+
+// Fog
+Mist 1030
+Fog 1135
+Freezing fog 1147
+
+// Thunder
+Thundery outbreaks in nearby 1087, 1273-1282
+
+// Rain
+Patchy rain nearby 1063
+Patchy light drizzle 1150-1201
+Light rain shower 1240
+
+// Snow
+Patchy snow nearby 1066
+Patchy freezing drizzle nearby 1072
+Blowing snow 1114
+Blizzard 1117
+Light snow 1210-1237, 1255-1264
+Moderate snow
+Ice pellets 
+
+// Sleet
+Patchy sleet nearby 1069
+1204-1207,1252 - sleet
+
+*/
