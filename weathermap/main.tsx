@@ -120,7 +120,7 @@ async function changeWeather() {
     for (let x1 = map.getBounds()._ne.lng - deltalng1 / 2; x1 > map.getBounds()._sw.lng; x1 -= deltalng1) {
       let x = Math.floor(x1 * 10000) / 10000;
       // let x = x1;
-      let url2 = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${y},${x}&days=5`;
+      let url2 = `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${y},${x}&days=5`;
 
       fetch(url2).then((mydata) => {
         mydata.text().then((txt) => {
@@ -263,7 +263,7 @@ const App = () => {
         let y = Math.floor(y1 * 10000) / 10000;
         for (let x1 = -180; x1 < 180; x1 += deltalng) {
           let x = Math.floor(x1 * 10000) / 10000;
-          let url2 = `http://api.weatherapi.com/v1/forecast.json?key=2857565256134dea82685333241506&q=${y},${x}&days=2`;
+          let url2 = `https://api.weatherapi.com/v1/forecast.json?key=2857565256134dea82685333241506&q=${y},${x}&days=2`;
 
           fetch(url2).then((mydata) => {
             mydata.text().then((txt) => {
