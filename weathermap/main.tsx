@@ -97,6 +97,7 @@ function createSource(name: string, size: number, i: number, x: number, y: numbe
   sources.push('maine' + i);
 }
 
+
 async function changeWeather() {
   for (let i of sources) {
     map.removeLayer(i)
@@ -108,11 +109,15 @@ async function changeWeather() {
   let i = 0;
   let c = map.getCenter()
   let zoom = map.getZoom() * 3;
-  let deltalat1 = (map.getBounds()._ne.lat - map.getBounds()._sw.lat) / numOfLat;
+  let elem = document.getElementById("dens") as HTMLInputElement;
+  let numOfLat1 = numOfLat + (Number(elem.value) * 0);
+  // let mens = elem.value / 2;
+  let numOfLng1 = numOfLng + (Number(elem.value));
+  let deltalat1 = (map.getBounds()._ne.lat - map.getBounds()._sw.lat) / numOfLat1;
   let razn = map.getBounds()._ne.lng - map.getBounds()._sw.lng;
   if (razn > 360)
     razn = 360;
-  let deltalng1 = razn / numOfLng;
+  let deltalng1 = razn / numOfLng1;
   for (let y1 = map.getBounds()._ne.lat - deltalat1 / 2; y1 > map.getBounds()._sw.lat; y1 -= deltalat1) {
     let y = Math.floor(y1 * 10000) / 10000;
     // let y = y1;
@@ -203,35 +208,6 @@ const numOfLng = 4, numOfLat = 3;
 let lat = 0, lng = 0;
 
 const App = () => {
-  const [mycountry, setCountry] = useState("undefined");
-  const [mycity, setCity] = useState("undefined");
-  const [mydate, setDate] = useState("undefined");
-
-  function onMapClick(e: any) {
-    // console.log('click');
-    // marker.setLngLat(e.lngLat);
-
-    let url = `https://api.openweathermap.org/data/2.5/forecast?lat=${e.lngLat.lat}&lon=${e.lngLat.lng}&units=metric&appid=7185f8466d8d0f2977ed26d7bdcab055`;
-    let url1 = `https://api.openweathermap.org/data/2.5/weather?lat=${e.lngLat.lat}&lon=${e.lngLat.lng}&units=metric&appid=7185f8466d8d0f2977ed26d7bdcab055`;
-
-    lat = e.lngLat.lat;
-    lng = e.lngLat.lng;
-
-    fetch(url).then((mydata) => {
-      // console.log("zashlo");
-      mydata.text().then((txt) => {
-        let text = JSON.parse(txt);
-        // console.log('done');
-        setCountry(text.city.country);
-        // console.log(text.city);
-        // setCity(text.city.name);
-        // setTemp(text.list[0].main.temp);
-        // setDate(text.list[0].dt_txt);
-      });
-    });
-  }
-
-
   useEffect(() => {
     if (!map) {
       map = new maplibregl.Map({
@@ -333,8 +309,16 @@ const App = () => {
       cl.onclick = function () {
         changeWeather();
       };
+    map.on("mouseup", (ev: maplibregl.MapMouseEvent) => {
+      changeWeather();
+    })
+    map.on("wheel", () => {
+      changeWeather();
+    })
     map.on("dblclick", (e: any) => {
       console.log('click');
+      console.log(e.lngLat.lng)
+      console.log(e.lngLat.lat)
       // onMapClick(e);
       // marker.setLngLat(e.lngLat);
     })
@@ -352,7 +336,8 @@ const App = () => {
   return (
     <div style={{ width: "100%" }}>
       <div className="map" style={{ width: "80%" }}>
-        <p id="map" style={{ height: "600px", width: "100%" }}></p>
+        <Map id='map' style={{ width: 1200, height: 450 }}>
+        </Map>
       </div>
       <div className="country" style={{ width: "1000px" }}>
       </div>
@@ -360,14 +345,26 @@ const App = () => {
   //            <p>Temperature: {0}</p><p>Country: {mycountry}</p>
 }
 
+let isMouseDown = false;
+
 async function onLoad() {
   const rootElement = document.getElementById("root");
   if (rootElement) {
     const root = createRoot(rootElement);
+    let elem = document.getElementById("dens") as HTMLInputElement;
+    elem.onchange = () => {
+      changeWeather();
+    }
+
     // root.render([<div>its me</div>]);
     root.render([<App></App>]);
   }
 }
 window.onload = onLoad;
 
-
+window.onmousedown = () => {
+  isMouseDown = true;
+}
+window.onmouseup = () => {
+  isMouseDown = false;
+}
