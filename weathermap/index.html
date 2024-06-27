@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 
 <head>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <script src="./output/main.js">
     </script>
     <link rel="stylesheet" href="style.css" type="text/css" />
+
 </head>
 <!--min="2024-06-17T00:00"-->
 
 <body>
     <div id="mybut" width="100%">
         <p>
+            <input type="range" min="0" max="5" id="dens" value="0"/>Density
             <input id="nowdate" type="datetime-local" class="glow-on-hover" max="2024-06-20T00:00" step="3600" />
             <input id="clickMe" type="button" value="Check weather" />
         </p>
